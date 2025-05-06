@@ -43,7 +43,7 @@ class ErrorBoundary extends React.Component<
             textAlign: "center",
             mt: 4,
 
-            height: "100vh",
+            height: "90vh",
             justifyContent: "center",
             alignItems: "center",
           }}

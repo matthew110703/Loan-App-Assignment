@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import { Home, About, ExchangeRatesLive, Error } from "./pages";
+import { Home, About, ExchangeRatesLive, Error, NotFound } from "./pages";
 import { Divider, Container } from "@mui/material";
 import Header from "./components/layout/Header";
 
@@ -15,6 +15,7 @@ export default function App() {
           <Route path="/about" element={<About />} />
           <Route path="/error" element={<Error />} />
           <Route path="/exchange-rates-live" element={<ExchangeRatesLive />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Container>
     </Router>
