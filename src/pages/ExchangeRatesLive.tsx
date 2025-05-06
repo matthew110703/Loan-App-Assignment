@@ -61,7 +61,7 @@ const ExchangeRatesLive = () => {
   return (
     <main>
       <Typography variant="h4" component="h1" gutterBottom>
-        Exchange Rates Live
+        Exchange Rates (Live)
       </Typography>
       <Typography
         variant="body1"
@@ -160,7 +160,7 @@ const ExchangeRatesLive = () => {
                     <TableCell
                       key={headCell.id}
                       align="left"
-                      style={{ minWidth: 200, fontWeight: 600 }}
+                      style={{ minWidth: 150, fontWeight: 600 }}
                     >
                       {headCell.label}
                     </TableCell>
@@ -171,6 +171,7 @@ const ExchangeRatesLive = () => {
                 {/* Map through conversion rates and display them in the table */}
                 {displayedRates.map(([currencyCode, rate]) => (
                   <TableRow key={currencyCode}>
+                    {/* Display currency code and name */}
                     <TableCell component="th" scope="row">
                       {currencyCode} (
                       <span style={{ fontSize: "0.8rem" }}>
@@ -206,6 +207,14 @@ const ExchangeRatesLive = () => {
             page={page}
             onPageChange={handleSetPage}
             onRowsPerPageChange={handleChangeRowsPerPage}
+            labelRowsPerPage={
+              <Typography
+                color="text.secondary"
+                sx={{ fontSize: { xs: "0.7rem", sm: "0.9rem" } }}
+              >
+                Rows per page:
+              </Typography>
+            }
             labelDisplayedRows={({ from, to, count }) =>
               `${from}-${to} of ${count}`
             }

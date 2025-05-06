@@ -54,7 +54,6 @@ export default function DrawerAppBar(props: Props) {
         }}
       >
         <Typography variant="h6">Loan Calculator</Typography>
-        <Switch checked={isDarkMode} onClick={() => toggleDarkMode()} />
       </Box>
       <Divider />
       <List>
@@ -89,13 +88,27 @@ export default function DrawerAppBar(props: Props) {
           >
             <Menu />
           </IconButton>
-          <Typography
-            variant="h6"
-            component="div"
-            sx={{ flexGrow: 1, display: "block" }}
+          <Box
+            sx={{
+              display: "flex",
+              flexGrow: 1,
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
           >
-            Loan Calculator
-          </Typography>
+            <Typography
+              variant="h6"
+              component="div"
+              sx={{ flexGrow: 1, display: "block" }}
+            >
+              Loan Calculator
+            </Typography>
+            <Switch
+              sx={{ display: { xs: "flex", sm: "none" } }}
+              checked={isDarkMode}
+              onClick={() => toggleDarkMode()}
+            />
+          </Box>
           <Box sx={{ display: { xs: "none", sm: "flex" } }}>
             {navItems.map((item) => (
               <Button
