@@ -1,5 +1,5 @@
-const Error = () => {
-  return <div>Error</div>;
+const ErrorPage = () => {
+  throw new Error("Something went wrong!");
 };
 
-export default Error;
+export default ErrorPage;
