@@ -1,5 +1,7 @@
 # Loan Calculator Application
 
+#### [🔗 Click here for Live Demo](https://loan-app-assignment.vercel.app/)
+
 ## Overview
 
 This repository houses a modern Loan Calculator App designed as a single-page web application. The app empowers users to calculate Loan EMIs (Equated Monthly Installments), view a detailed amortization schedule, and convert EMIs into real-time currency equivalents using live exchange rates. It is built with a robust stack of modern web technologies to deliver an intuitive and responsive user experience.
