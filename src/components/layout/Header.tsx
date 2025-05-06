@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { ThemeContext } from "../../lib/ThemeContext";
 import { useLocation, useNavigate } from "react-router-dom";
 import type { Location } from "react-router-dom";
 import {
@@ -32,6 +33,7 @@ const navItems = [
 ];
 
 export default function DrawerAppBar(props: Props) {
+  const { toggleDarkMode, isDarkMode } = useContext(ThemeContext);
   const location: Location = useLocation();
   const navigate = useNavigate();
   const { window } = props;
@@ -52,7 +54,7 @@ export default function DrawerAppBar(props: Props) {
         }}
       >
         <Typography variant="h6">Loan Calculator</Typography>
-        <Switch />
+        <Switch checked={isDarkMode} onClick={() => toggleDarkMode()} />
       </Box>
       <Divider />
       <List>
@@ -109,7 +111,9 @@ export default function DrawerAppBar(props: Props) {
                     backgroundColor:
                       location.pathname === item.path
                         ? "rgba(255, 255, 255, 0.133)"
-                        : "rgba(53, 52, 52, 0.1)", // fallback
+                        : isDarkMode
+                        ? "rgba(146, 146, 146, 0.13)"
+                        : "rgba(85, 85, 85, 0.13)",
                   },
                 }}
                 onClick={() => navigate(item.path)}
@@ -117,7 +121,7 @@ export default function DrawerAppBar(props: Props) {
                 {item.label}
               </Button>
             ))}
-            <Switch />
+            <Switch checked={isDarkMode} onClick={() => toggleDarkMode()} />
           </Box>
         </Toolbar>
       </AppBar>
